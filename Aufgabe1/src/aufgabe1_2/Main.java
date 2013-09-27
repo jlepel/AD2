@@ -1,5 +1,8 @@
 package aufgabe1_2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,8 +16,17 @@ public class Main {
 		System.out.println(list.length());
 		list.head();
 		System.out.println(list.length());
+	
 		list.head();
 		System.out.println(list.length());
+	
+		List<String> testlist = new ArrayList<String>();
+		
+
+	
+	System.out.println("BLAAAAA: " + testlist.size());
+		
+		
 	}
 
 }

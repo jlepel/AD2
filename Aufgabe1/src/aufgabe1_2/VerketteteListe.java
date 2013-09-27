@@ -1,9 +1,10 @@
 package aufgabe1_2;
 
-public class VerketteteListe {
+public class VerketteteListe implements VList {
 
 	Element elem = new Element(null);
 
+	@Override
 	public void cons(Object element) {
 		Element tmp = new Element(element);
 
@@ -16,7 +17,31 @@ public class VerketteteListe {
 
 		}
 	}
-	
+
+	public void insert(Element element, int x) {
+		int counter = 0;
+		Element tmp;
+		if (this.length() < x) {
+			throw new IllegalArgumentException("Wert zu groß!");
+		}
+		
+		if(x == 0){
+			cons(element);
+			
+		}
+		
+		if(x > 0){
+			while((elem.getNextElem() != null) || counter < x){
+			counter ++;
+		
+		}
+			
+		}
+		
+		
+	}
+
+	@Override
 	public int length() {
 		if (this.isEmpty()) {
 			return 0;
@@ -31,20 +56,21 @@ public class VerketteteListe {
 		return sum;
 	}
 
+	@Override
 	public void head() {
-		if (this.isEmpty()) {
-			throw new IllegalArgumentException();
+		if (elem.getElementValue() == null) {
+			throw new IllegalArgumentException("LEER");
 		}
-		this.elem = elem.getNextElem(); 
-		
+
+		this.elem = elem.getNextElem();
+
 	}
 
+	@Override
 	public boolean isEmpty() {
-		if (elem.getElementValue()==(null)) {
-			return true;
-		}
-		return false;
+		return (elem.getElementValue() == (null));
 	}
+
 }
 
 class Element {
@@ -69,6 +95,7 @@ class Element {
 		return this.object;
 	}
 
+	
 	public String toString() {
 		return object.toString();
 	}
