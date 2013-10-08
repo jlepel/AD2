@@ -6,8 +6,8 @@ public class MatrixArray implements MatrixInterface {
 
 	float[][] matrix;
 
-	public MatrixArray(int elem) {
-		matrix = new float[elem][elem];
+	public MatrixArray(int size) {
+		matrix = new float[size][size];
 	}
 
 	@Override
@@ -45,24 +45,35 @@ public class MatrixArray implements MatrixInterface {
 
 			for (int j = 0; j < this.size(); j++) {
 
-				this.setElement(i, j, (float) Math.pow(this.getElement(i, j),elem));
+				this.setElement(i, j,
+						(float) Math.pow(this.getElement(i, j), elem));
 
 			}
 		}
-		
+
 		return this;
 	}
 
 	@Override
-	public MatrixInterface pow(MatrixInterface elem) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public MatrixInterface mul(MatrixInterface matr) {
+		MatrixInterface result = new MatrixArray(this.size());
 
-	@Override
-	public MatrixInterface pot() {
-		// TODO Auto-generated method stub
-		return null;
+		for (int i = 0; i < this.size(); i++) {
+
+			for (int j = 0; j < matr.size(); j++) {
+
+				float temp = 0;
+				for (int k = 0; k < this.size(); k++) {
+					temp = temp
+							+ (this.getElement(i, k) * matr.getElement(k, j));
+
+					result.setElement(i, j, temp);
+				}
+
+			}
+
+		}
+		return result;
 	}
 
 	@Override

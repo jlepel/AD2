@@ -13,10 +13,8 @@ public interface MatrixInterface {
 	/**
 	 @exception A Matrix
 	 **/
-	MatrixInterface pow(MatrixInterface elem);
-	
-	MatrixInterface pot();
-	
+	MatrixInterface mul(MatrixInterface elem);
+
 	int size();
 	
 	float getElement(int x, int y);
